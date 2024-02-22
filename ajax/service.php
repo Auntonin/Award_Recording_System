@@ -1,4 +1,3 @@
-
 <?php
 require_once("../condb.php");
 
@@ -19,9 +18,11 @@ $data = array();
 
 if ($result) {
     while ($row = $result->fetch_assoc()) {
+        // Modify the row data if needed, e.g., convert images
+        // $row['images'] = "<img src='../img/" . $row['images'] . "'>";
         $data[] = $row;
     }
-    echo json_encode($data);
+    echo json_encode(['data' => $data], JSON_UNESCAPED_UNICODE);
 } else {
     echo json_encode(['error' => $conn->error]);
 }

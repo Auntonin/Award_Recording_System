@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Awards Table</title>
-  <?php require_once("css.php"); ?>
-  <!-- Include jQuery and DataTables CSS and JS files -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.10/css/jquery.dataTables.css">
+  <?php 
+  require_once("condb.php");
+  require_once("css.php"); ?>
+  
 </head>
 <body>
 
-<div class="container mt-5">
+<div class="container table-responsive mt-5">
   <h2>Awards Table</h2>
-  <table class="table" id="awardsTable">
+  <table class="table table-bordered table-striped" id="awardsTable">
     <thead>
       <tr>
         <th>ID</th>
@@ -32,8 +33,11 @@
         <th>File</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+   
+    </tbody>
   </table>
+
 </div>
 
 <?php require_once("js.php"); ?>
@@ -41,8 +45,18 @@
 <script>
   $(document).ready(function () {
     var awardsTable = $('#awardsTable').DataTable({
+      "destroy": true,
+      "lengthChange": true,
+      "paging": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "responsive": true,
+      "autoWidth": false,
+      "pageLength": 25,
       "processing": true,
       "serverSide": true,
+
       "ajax": {
         "url": "ajax/service.php",
         "type": "POST"

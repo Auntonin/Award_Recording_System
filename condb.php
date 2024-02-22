@@ -3,7 +3,7 @@ session_start();
 $servername="localhost";
 $username="root";
 $password="";
-$dbname="ars";
+$dbname="ars1";
 
 $conn = new mysqli ($servername,$username,$password,$dbname);
 
