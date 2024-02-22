@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="container table-responsive mt-5">
+<div class="container table- mt-5">
   <h2>Awards Table</h2>
   <table class="table table-bordered table-striped" id="awardsTable">
     <thead>
@@ -31,10 +31,11 @@
         <th>Status</th>
         <th>Image</th>
         <th>File</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
-   
     </tbody>
   </table>
 
@@ -42,24 +43,26 @@
 
 <?php require_once("js.php"); ?>
 
+
 <script>
   $(document).ready(function () {
     var awardsTable = $('#awardsTable').DataTable({
-      "destroy": true,
-      "lengthChange": true,
-      "paging": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "responsive": true,
-      "autoWidth": false,
-      "pageLength": 25,
-      "processing": true,
-      "serverSide": true,
+      // "destroy": true,
+      // "lengthChange": true,
+      // "paging": true,
+      // "searching": true,
+      // "ordering": true,
+      // "info": true,
+      // "responsive": true,
+      // "autoWidth": false,
+      // "pageLength": 25,
+      // "processing": true,
+      // "serverSide": true,
 
       "ajax": {
         "url": "ajax/service.php",
-        "type": "POST"
+        "type": "POST",
+        "dataType": 'json',
       },
       "columns": [
         { "data": "award_id" },
@@ -76,7 +79,20 @@
         { "data": "description" },
         { "data": "award_status" },
         { "data": "award_image" },
-        { "data": "award_file" }
+        { "data": "award_file" },
+        {
+        "data": null,
+        "render": function (data, type, row) {
+          return '<button class="btn btn-warning btn-sm edit-btn">Edit</button>';
+        }
+      },
+      {
+        "data": null,
+        "render": function (data, type, row) {
+          return '<button class="btn btn-danger btn-sm delete-btn">Delete</button>';
+        }
+      }
+
       ]
     });
   });
