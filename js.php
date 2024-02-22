@@ -12,4 +12,3 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
-<script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
