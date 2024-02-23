@@ -23,7 +23,6 @@
   
   <h2>Awards Table</h2>
 
-  <button class="btn btn-success m-2" data-toggle="modal" data-target="#add_award">add award</button>
 
   <table class="table table-bordered border  table-striped" id="awardsTable">
     <thead>
@@ -54,63 +53,98 @@
  
 </div>
 
-<div class="modal fade" id="add_award" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		  <div class="modal-dialog" role="document">
-			<div class="modal-content">
+<button type="button" class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#add_award">add award</button>
+
+
+
+<div class="modal fade " id="add_award" tabindex="-1" role="dialog modal-dialog-centered" aria-labelledby="myModalLabel" >
+		  <div class="modal-dialog " role="document">
+			<div class="modal-content ">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">เพิ่มข้อมูล</h4>
 			  </div>
 			  <div class="modal-body">
-					<form id="add_node_form">
+					<form id="add_node_form" enctype="multipart-form-data">
 					<div class="form-group">
-						<label >ชนิด</label>
-						<input type="text" class="form-control" name="send_type"  placeholder="Switch | Access Point">
+						<label >Award Type</label>
+						<select name="award_type"  id="award_type" class="form-control">
+            <option value="">select</option>
+            </select>
 					  </div>
+
 					  <div class="form-group">
-						<label >ยี่ห้อ</label>
-						<input type="text" class="form-control" name="send_brand"  placeholder="ระบุ ยี่ห้อ">
+						<label >Type</label>
+						<select name="type"  id="type" class="form-control">
+            <option value="">select</option>
+            </select>
 					  </div>
+
 					  <div class="form-group">
-						<label >รุ่น</label>
-						<input type="text" class="form-control" name="send_version"  placeholder="ระบุ รุ่น">
+						<label >Category</label>
+            <select name="category"  id="category" class="form-control">
+            <option value="">select</option>
+            </select>
 					  </div>
+
 					  <div class="form-group">
-						<label >Model</label>
-						<input type="text" class="form-control" name="send_model"  placeholder="ระบุ Model">
+						<label >Level</label>
+            <select name="level"  id="Level" class="form-control">
+            <option value="">select</option>
+            </select>
 					  </div>
+
 					  <div class="form-group">
-						<label >Serial Number</label>
-						<input type="text" class="form-control" name="send_serialnumber"  placeholder="ระบุ Serial Number">
+						<label >Name</label>
+            <select name="skill_id"  id="skill" class="form-control">
+            <option value="">select</option>
+            </select>
 					  </div>
+
 					  <div class="form-group">
-						<label >MAC Address เริ่มต้น</label>
-						<input type="text" class="form-control" name="send_mac1"  placeholder="ระบุ MAC Address เริ่มต้น">
+						<label >Department</label>
+            <select name="department"  id="department" class="form-control">
+            <option value="">select</option>
+            </select>
 					  </div>
+
 					  <div class="form-group">
-						<label >MAC Address สิ้นสุด</label>
-						<input type="text" class="form-control" name="send_mac2"  placeholder="ระบุ MAC Address สิ้นสุด">
+						<label >Class</label>
+							<select name="class"  id="class" class="form-control">
+            <option value="">select</option>
+            </select>
 					  </div>
+
 					  <div class="form-group">
-						<label >IP Address</label>
-						<input type="text" class="form-control" name="send_ip"  placeholder="ระบุ IP Address ">
+						<label >Organizer</label>
+						<input type="text" name="organizer" class="form-control">
 					  </div>
+
 					  <div class="form-group">
-						<label >Username Login</label>
-						<input type="text" class="form-control" name="send_userlogin"  placeholder="ระบุ ชื่อผู้ใช้งาน">
+						<label >Location</label>
+						<input type="text" name="location" class="form-control">
 					  </div>
+
 					  <div class="form-group">
-						<label >Password</label>
-						<input type="text" class="form-control" name="send_passwd"  placeholder="ระบุ รหัสผ่าน">
+						<label >Issue Date</label>
+            <input type="date" name="data" class="form-control">
 					  </div>
+
 					  <div class="form-group">
-						<label >สถานที่อุปกรณ์</label>
-						<input type="text" class="form-control" name="send_location"  placeholder="ระบุ สถานที่ที่ อุปกรณ์ติดตั้ง">
+						<label >Description</label>
+							<input type="text" name="description" class="form-control">
 					  </div>
-					  <div class="form-group">
-						<label >ข้อมูลอื่น ๆ</label>
-						<input type="text" class="form-control" name="send_comment"  placeholder="ระบุ ข้อมูลอื่น ๆ">
+
+            <div class="form-group">
+						<label >Image</label>
+							<input type="file" name="image" class="form-control">
 					  </div>
+
+            <div class="form-group">
+						<label >File</label>
+						<input type="file" name="award_pdf" class="form-control">
+					  </div>
+
 					</form>
 			  </div>
 			  <div class="modal-footer">
@@ -126,6 +160,9 @@
 
 <script>
   $(document).ready(function () {
+<?php require_once("service/script.js"); ?>
+   
+    
     var awardsTable = $('#awardsTable').DataTable({
       // "destroy": true,
       // "lengthChange": true,
