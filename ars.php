@@ -66,7 +66,8 @@
 			  </div>
 			  <div class="modal-body">
 					<form id="add_node_form" enctype="multipart-form-data">
-					<div class="form-group">
+
+					  <div class="form-group">
 						<label >Award Type</label>
 						<select name="award_type"  id="award_type" class="form-control">
             <option value="">select</option>

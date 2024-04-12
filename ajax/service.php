@@ -1,6 +1,6 @@
 <?php
 require_once("../condb.php");
-
+//select data
 // Query to retrieve data from the Awards table
 $sql = "SELECT * FROM Awards
         LEFT JOIN award_type ON awards.award_type_Id = award_type.award_type_id
