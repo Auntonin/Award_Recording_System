@@ -1,5 +1,9 @@
 <?php
 require_once("../condb.php");
+
+if(isset($_POST['status']) && $_POST['status']=="allAward" ){
+
+
 //select data
 // Query to retrieve data from the Awards table
 $sql = "SELECT * FROM Awards
@@ -9,8 +13,7 @@ $sql = "SELECT * FROM Awards
         LEFT JOIN award_level ON awards.award_level_Id = award_level.award_level_id
         LEFT JOIN skill ON awards.skill_Id = skill.skill_id
         LEFT JOIN department ON awards.department_Id = department.department_id
-        LEFT JOIN class ON awards.class_Id = class.class_id
-        LEFT JOIN award_image ON awards.award_image_Id = award_image.award_image_id";
+        LEFT JOIN class ON awards.class_Id = class.class_id";
 
 $result = $conn->query($sql);
 
@@ -28,4 +31,5 @@ if ($result) {
 }
 
 $conn->close();
+}
 ?>

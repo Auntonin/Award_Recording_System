@@ -61,6 +61,13 @@ function get_c($val){
 }
 
 
+function getSelecterAward($sql , $id ,$name ){
+    global $conn ;
+    $result=$conn->query("SELECT * FROM  $sql ");
+    while($rs=$result->fetch_array()){ 
+    echo "<option value='$rs[$id]'> $rs[$name]</option>";
+  } 
+}
 
 function formatPN($phoneNumber) {
     // Remove any non-numeric characters from the phone number
